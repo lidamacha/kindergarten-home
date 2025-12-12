@@ -1,51 +1,60 @@
 import { Heart, Star, Users, Award } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const features = [
-  {
-    icon: Heart,
-    title: "Αγάπη & Φροντίδα",
-    description: "Κάθε παιδί αντιμετωπίζεται με αγάπη και προσοχή σε ένα ασφαλές περιβάλλον.",
-    color: "bg-primary/10",
-    iconColor: "text-primary",
-  },
-  {
-    icon: Star,
-    title: "Δημιουργικότητα",
-    description: "Ενθαρρύνουμε τη φαντασία και τη δημιουργική έκφραση μέσα από το παιχνίδι.",
-    color: "bg-accent/30",
-    iconColor: "text-accent-foreground",
-  },
-  {
-    icon: Users,
-    title: "Κοινότητα",
-    description: "Χτίζουμε ισχυρούς δεσμούς μεταξύ παιδιών, γονέων και εκπαιδευτικών.",
-    color: "bg-secondary",
-    iconColor: "text-secondary-foreground",
-  },
-  {
-    icon: Award,
-    title: "Εξέλιξη",
-    description: "Βοηθάμε κάθε παιδί να αναπτύξει τις δεξιότητές του στο δικό του ρυθμό.",
-    color: "bg-sky/30",
-    iconColor: "text-sky-foreground",
-  },
-];
+const Philosophy = () => {
+  const { t } = useLanguage();
 
-const About = () => {
+  const features = [
+    {
+      icon: Heart,
+      title: t.philosophy.features.love.title,
+      description: t.philosophy.features.love.description,
+      color: "bg-primary/10",
+      iconColor: "text-primary",
+    },
+    {
+      icon: Star,
+      title: t.philosophy.features.creativity.title,
+      description: t.philosophy.features.creativity.description,
+      color: "bg-accent/30",
+      iconColor: "text-accent-foreground",
+    },
+    {
+      icon: Users,
+      title: t.philosophy.features.community.title,
+      description: t.philosophy.features.community.description,
+      color: "bg-secondary",
+      iconColor: "text-secondary-foreground",
+    },
+    {
+      icon: Award,
+      title: t.philosophy.features.growth.title,
+      description: t.philosophy.features.growth.description,
+      color: "bg-sky/30",
+      iconColor: "text-sky-foreground",
+    },
+  ];
+
+  const stats = [
+    { number: "150+", label: t.philosophy.stats.children },
+    { number: "20+", label: t.philosophy.stats.experience },
+    { number: "12", label: t.philosophy.stats.teachers },
+    { number: "100%", label: t.philosophy.stats.love },
+  ];
+
   return (
-    <section id="about" className="py-20 bg-card">
+    <section id="philosophy" className="py-20 bg-card">
       <div className="container mx-auto px-4">
         {/* Section header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="inline-block px-4 py-2 rounded-full bg-secondary text-secondary-foreground font-medium text-sm mb-4">
-            Σχετικά με εμάς
+            {t.philosophy.badge}
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Ένα σπίτι γεμάτο χαρά
+            {t.philosophy.title}
           </h2>
           <p className="text-muted-foreground text-lg">
-            Στα "Χρώματα και Γέλια" πιστεύουμε ότι κάθε παιδί είναι μοναδικό και αξίζει 
-            την καλύτερη αρχή στη ζωή του.
+            {t.philosophy.description}
           </p>
         </div>
 
@@ -72,12 +81,7 @@ const About = () => {
 
         {/* Stats */}
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6">
-          {[
-            { number: "150+", label: "Χαρούμενα παιδιά" },
-            { number: "20+", label: "Χρόνια εμπειρίας" },
-            { number: "12", label: "Εκπαιδευτικοί" },
-            { number: "100%", label: "Αγάπη" },
-          ].map((stat) => (
+          {stats.map((stat) => (
             <div key={stat.label} className="text-center p-6">
               <div className="text-4xl sm:text-5xl font-bold text-primary mb-2">
                 {stat.number}
@@ -93,4 +97,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Philosophy;

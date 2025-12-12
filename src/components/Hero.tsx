@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Sparkles, Heart } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import heroImage from "@/assets/hero-kids.jpg";
 
 const Hero = () => {
+  const { t } = useLanguage();
+
   return (
     <section
       id="home"
@@ -24,27 +27,26 @@ const Hero = () => {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 shadow-soft">
               <Sparkles className="w-5 h-5 text-accent" />
               <span className="text-sm font-medium text-muted-foreground">
-                Καλώς ήρθατε στο νηπιαγωγείο μας!
+                {t.hero.welcome}
               </span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-              Χρώματα
-              <span className="block text-primary">&amp; Γέλια</span>
+              {t.hero.title1}
+              <span className="block text-primary">{t.hero.title2}</span>
             </h1>
 
             <p className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0">
-              Ένα χαρούμενο νηπιαγωγείο όπου τα παιδιά ανακαλύπτουν τον κόσμο 
-              μέσα από το παιχνίδι, τη δημιουργικότητα και την αγάπη.
+              {t.hero.description}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
               <Button variant="hero" size="xl">
                 <Heart className="w-5 h-5" />
-                Γνωρίστε μας
+                {t.hero.cta}
               </Button>
               <Button variant="outline" size="xl">
-                Επικοινωνία
+                {t.hero.contact}
               </Button>
             </div>
           </div>
@@ -54,7 +56,7 @@ const Hero = () => {
             <div className="relative rounded-blob overflow-hidden shadow-float transform hover:scale-[1.02] transition-transform duration-500">
               <img
                 src={heroImage}
-                alt="Παιδιά που παίζουν στο νηπιαγωγείο"
+                alt={t.hero.welcome}
                 className="w-full h-auto object-cover aspect-[4/3]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent" />
@@ -67,8 +69,8 @@ const Hero = () => {
                   <span className="text-lg">🎨</span>
                 </div>
                 <div>
-                  <p className="font-bold text-foreground text-sm">20+ χρόνια</p>
-                  <p className="text-xs text-muted-foreground">εμπειρίας</p>
+                  <p className="font-bold text-foreground text-sm">20+ {t.hero.experience}</p>
+                  <p className="text-xs text-muted-foreground">{t.hero.years}</p>
                 </div>
               </div>
             </div>
