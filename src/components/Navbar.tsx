@@ -1,11 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, Palette, Instagram, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { name: t.nav.philosophy, href: "#philosophy" },
@@ -15,17 +24,26 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/90 backdrop-blur-md shadow-soft">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      scrolled 
+        ? 'glass shadow-soft py-2' 
+        : 'bg-transparent py-4'
+    }`}>
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-soft group-hover:animate-wiggle transition-transform">
-              <Palette className="w-6 h-6 text-primary-foreground" />
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-peach flex items-center justify-center shadow-soft group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+              <Palette className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-foreground hidden sm:block">
-              {language === "el" ? "Χρώματα & Γέλια" : "Colors & Laughter"}
-            </span>
+            <div className="hidden sm:block">
+              <span className="text-xl font-bold text-foreground block leading-tight">
+                {language === "el" ? "Χρώματα" : "Colors"}
+              </span>
+              <span className="text-sm font-medium text-muted-foreground leading-tight">
+                {language === "el" ? "& Γέλια" : "& Laughter"}
+              </span>
+            </div>
           </a>
 
           {/* Desktop Navigation */}
@@ -34,22 +52,23 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="px-4 py-2 text-foreground/80 hover:text-primary font-medium rounded-bubble transition-colors hover:bg-muted"
+                className="relative px-4 py-2 text-foreground/80 hover:text-primary font-medium rounded-xl transition-all duration-300 hover:bg-primary/5 group"
               >
                 {link.name}
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-primary to-accent rounded-full group-hover:w-1/2 transition-all duration-300" />
               </a>
             ))}
           </div>
 
           {/* Right side: Social + Language + Register */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-4">
             {/* Social Links */}
             <div className="flex items-center gap-1">
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-full hover:bg-muted transition-colors text-foreground/70 hover:text-primary"
+                className="p-2.5 rounded-xl hover:bg-primary/10 transition-all duration-300 text-foreground/70 hover:text-primary hover:scale-110"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
@@ -58,7 +77,7 @@ const Navbar = () => {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-full hover:bg-muted transition-colors text-foreground/70 hover:text-primary"
+                className="p-2.5 rounded-xl hover:bg-primary/10 transition-all duration-300 text-foreground/70 hover:text-primary hover:scale-110"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
@@ -66,12 +85,12 @@ const Navbar = () => {
             </div>
 
             {/* Language Switcher */}
-            <div className="flex items-center bg-muted rounded-full p-1">
+            <div className="flex items-center glass rounded-full p-1 border-border/30">
               <button
                 onClick={() => setLanguage("el")}
-                className={`px-3 py-1 rounded-full text-sm font-medium transition-all ${
+                className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                   language === "el"
-                    ? "bg-primary text-primary-foreground"
+                    ? "bg-gradient-to-r from-primary to-peach text-white shadow-soft"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -79,9 +98,9 @@ const Navbar = () => {
               </button>
               <button
                 onClick={() => setLanguage("en")}
-                className={`px-3 py-1 rounded-full text-sm font-medium transition-all ${
+                className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                   language === "en"
-                    ? "bg-primary text-primary-foreground"
+                    ? "bg-gradient-to-r from-primary to-peach text-white shadow-soft"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -89,14 +108,14 @@ const Navbar = () => {
               </button>
             </div>
 
-            <Button variant="hero" size="sm">
+            <Button variant="hero" size="default" className="shadow-soft hover:shadow-playful">
               {t.nav.register}
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors"
+            className="lg:hidden p-2.5 rounded-xl glass border-border/30 transition-all duration-300 hover:scale-105"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -110,13 +129,14 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden pb-6 animate-fade-in-up">
-            <div className="flex flex-col gap-2">
-              {navLinks.map((link) => (
+          <div className="lg:hidden py-6 animate-fade-in-up">
+            <div className="glass rounded-2xl p-4 border-border/30 space-y-2">
+              {navLinks.map((link, index) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="px-4 py-3 text-foreground/80 hover:text-primary font-medium rounded-lg transition-colors hover:bg-muted"
+                  className="block px-4 py-3 text-foreground/80 hover:text-primary font-medium rounded-xl transition-all duration-300 hover:bg-primary/5 animate-fade-in-up"
+                  style={{ animationDelay: `${0.05 * index}s` }}
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
@@ -124,38 +144,38 @@ const Navbar = () => {
               ))}
               
               {/* Mobile Social Links */}
-              <div className="flex items-center gap-4 px-4 py-3">
+              <div className="flex items-center gap-4 px-4 py-3 border-t border-border/30 mt-2 pt-4">
                 <a
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-foreground/70 hover:text-primary"
+                  className="flex items-center gap-2 text-foreground/70 hover:text-primary transition-colors"
                 >
                   <Instagram className="w-5 h-5" />
-                  <span>Instagram</span>
+                  <span className="text-sm font-medium">Instagram</span>
                 </a>
                 <a
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-foreground/70 hover:text-primary"
+                  className="flex items-center gap-2 text-foreground/70 hover:text-primary transition-colors"
                 >
                   <Facebook className="w-5 h-5" />
-                  <span>Facebook</span>
+                  <span className="text-sm font-medium">Facebook</span>
                 </a>
               </div>
 
               {/* Mobile Language Switcher */}
-              <div className="flex items-center gap-2 px-4 py-3">
-                <span className="text-sm text-muted-foreground">
+              <div className="flex items-center gap-3 px-4 py-3">
+                <span className="text-sm text-muted-foreground font-medium">
                   {language === "el" ? "Γλώσσα:" : "Language:"}
                 </span>
-                <div className="flex items-center bg-muted rounded-full p-1">
+                <div className="flex items-center glass-light rounded-full p-1 border-border/20">
                   <button
                     onClick={() => setLanguage("el")}
-                    className={`px-3 py-1 rounded-full text-sm font-medium transition-all ${
+                    className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                       language === "el"
-                        ? "bg-primary text-primary-foreground"
+                        ? "bg-gradient-to-r from-primary to-peach text-white"
                         : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
@@ -163,9 +183,9 @@ const Navbar = () => {
                   </button>
                   <button
                     onClick={() => setLanguage("en")}
-                    className={`px-3 py-1 rounded-full text-sm font-medium transition-all ${
+                    className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                       language === "en"
-                        ? "bg-primary text-primary-foreground"
+                        ? "bg-gradient-to-r from-primary to-peach text-white"
                         : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
@@ -174,7 +194,7 @@ const Navbar = () => {
                 </div>
               </div>
 
-              <Button variant="hero" size="default" className="mt-2 mx-4">
+              <Button variant="hero" size="lg" className="w-full mt-2">
                 {t.nav.register}
               </Button>
             </div>

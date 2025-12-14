@@ -1,4 +1,5 @@
-import { Baby, GraduationCap, BookOpen } from "lucide-react";
+import { Baby, GraduationCap, BookOpen, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Classes = () => {
@@ -10,39 +11,48 @@ const Classes = () => {
       title: t.classes.items.infant.title,
       ages: t.classes.items.infant.ages,
       description: t.classes.items.infant.description,
-      color: "from-primary/20 to-primary/5",
-      iconBg: "bg-primary",
+      gradient: "from-primary to-peach",
+      bgGradient: "from-primary/15 to-peach/10",
+      features: ["🧸", "🎵", "🖍️"],
     },
     {
       icon: BookOpen,
       title: t.classes.items.preschool.title,
       ages: t.classes.items.preschool.ages,
       description: t.classes.items.preschool.description,
-      color: "from-accent/40 to-accent/10",
-      iconBg: "bg-sun",
+      gradient: "from-accent to-sun",
+      bgGradient: "from-accent/20 to-sun/10",
+      features: ["📚", "🎨", "🌱"],
+      featured: true,
     },
     {
       icon: GraduationCap,
       title: t.classes.items.prek.title,
       ages: t.classes.items.prek.ages,
       description: t.classes.items.prek.description,
-      color: "from-sky/30 to-sky/5",
-      iconBg: "bg-sky",
+      gradient: "from-sky to-lavender",
+      bgGradient: "from-sky/20 to-lavender/10",
+      features: ["✏️", "🔢", "🌍"],
     },
   ];
 
   return (
-    <section id="classes" className="py-20 bg-card">
-      <div className="container mx-auto px-4">
+    <section id="classes" className="py-24 bg-card relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-lavender/10 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-gradient-to-br from-accent/10 to-transparent rounded-full blur-3xl" />
+      
+      <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="inline-block px-4 py-2 rounded-full bg-sky/30 text-sky-foreground font-medium text-sm mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass border-sky/30 font-semibold text-sm mb-6 animate-fade-in-up">
+            <GraduationCap className="w-4 h-4 text-sky" />
             {t.classes.badge}
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
             {t.classes.title}
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-lg sm:text-xl text-muted-foreground animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
             {t.classes.description}
           </p>
         </div>
@@ -52,25 +62,53 @@ const Classes = () => {
           {classes.map((classItem, index) => (
             <div
               key={classItem.title}
-              className={`group relative p-8 rounded-bubble bg-gradient-to-b ${classItem.color} border border-border/30 transition-all duration-300 hover:shadow-playful hover:-translate-y-2 overflow-hidden`}
+              className={`group relative rounded-3xl overflow-hidden transition-all duration-500 hover-lift animate-fade-in-up ${
+                classItem.featured ? 'md:-mt-4 md:mb-4' : ''
+              }`}
+              style={{ animationDelay: `${0.1 * index}s` }}
             >
-              {/* Background decoration */}
-              <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-card/20 blur-2xl" />
+              {/* Card background */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${classItem.bgGradient}`} />
+              <div className="absolute inset-0 glass opacity-80" />
               
-              <div className={`relative w-16 h-16 rounded-full ${classItem.iconBg} flex items-center justify-center mb-6 shadow-soft group-hover:animate-wiggle`}>
-                <classItem.icon className="w-8 h-8 text-primary-foreground" />
-              </div>
-              
-              <div className="relative">
+              {/* Featured badge */}
+              {classItem.featured && (
+                <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-gradient-to-r from-accent to-sun text-xs font-bold text-accent-foreground">
+                  ⭐ Popular
+                </div>
+              )}
+
+              <div className="relative z-10 p-8">
+                {/* Icon */}
+                <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${classItem.gradient} flex items-center justify-center mb-6 shadow-playful group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+                  <classItem.icon className="w-10 h-10 text-white" />
+                </div>
+
+                {/* Content */}
                 <h3 className="text-2xl font-bold text-foreground mb-2">
                   {classItem.title}
                 </h3>
-                <span className="inline-block px-3 py-1 rounded-full bg-card/80 text-sm font-medium text-muted-foreground mb-4">
+                <span className={`inline-block px-4 py-1.5 rounded-full bg-gradient-to-r ${classItem.gradient} text-white text-sm font-semibold mb-4`}>
                   {classItem.ages}
                 </span>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed mb-6">
                   {classItem.description}
                 </p>
+
+                {/* Features */}
+                <div className="flex items-center gap-3 mb-6">
+                  {classItem.features.map((emoji, i) => (
+                    <span key={i} className="text-2xl hover:scale-125 transition-transform cursor-default">
+                      {emoji}
+                    </span>
+                  ))}
+                </div>
+
+                {/* CTA */}
+                <Button variant="outline" className="w-full group/btn glass">
+                  Learn More
+                  <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                </Button>
               </div>
             </div>
           ))}
