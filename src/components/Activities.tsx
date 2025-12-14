@@ -1,8 +1,10 @@
 import { Palette, Music, BookOpen, TreePine, Puzzle, Users } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { ScrollReveal, useStaggerAnimation } from "@/hooks/useScrollAnimation";
 
 const Activities = () => {
   const { t } = useLanguage();
+  const { ref: gridRef, isVisible, getItemStyle } = useStaggerAnimation(6, { staggerDelay: 100 });
 
   const activities = [
     {
@@ -58,25 +60,34 @@ const Activities = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass border-accent/30 font-semibold text-sm mb-6 animate-fade-in-up">
-            <Palette className="w-4 h-4 text-accent" />
-            {t.activities.badge}
-          </span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-            {t.activities.title}
-          </h2>
-          <p className="text-lg sm:text-xl text-muted-foreground animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-            {t.activities.description}
-          </p>
+          <ScrollReveal animation="fade-up">
+            <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass border-accent/30 font-semibold text-sm mb-6">
+              <Palette className="w-4 h-4 text-accent" />
+              {t.activities.badge}
+            </span>
+          </ScrollReveal>
+          <ScrollReveal animation="fade-up" delay={100}>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+              {t.activities.title}
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal animation="fade-up" delay={200}>
+            <p className="text-lg sm:text-xl text-muted-foreground">
+              {t.activities.description}
+            </p>
+          </ScrollReveal>
         </div>
 
         {/* Activities grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div 
+          ref={gridRef as React.RefObject<HTMLDivElement>}
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {activities.map((activity, index) => (
             <div
               key={activity.title}
-              className="group relative glass rounded-3xl p-8 border-border/30 hover-lift transition-all duration-500 animate-fade-in-up"
-              style={{ animationDelay: `${0.1 * index}s` }}
+              className="group relative glass rounded-3xl p-8 border-border/30 hover-lift transition-all duration-500"
+              style={getItemStyle(index)}
             >
               {/* Hover gradient */}
               <div className={`absolute inset-0 bg-gradient-to-br ${activity.bgGradient} rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />

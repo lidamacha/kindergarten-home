@@ -1,8 +1,11 @@
 import { Heart, Sparkles, Users, TrendingUp } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { ScrollReveal, useStaggerAnimation } from "@/hooks/useScrollAnimation";
 
 const Philosophy = () => {
   const { t } = useLanguage();
+  const { ref: featuresRef, isVisible: featuresVisible, getItemStyle } = useStaggerAnimation(4, { staggerDelay: 150 });
+  const { ref: statsRef, isVisible: statsVisible, getItemStyle: getStatStyle } = useStaggerAnimation(4, { staggerDelay: 100 });
 
   const features = [
     {
@@ -51,25 +54,34 @@ const Philosophy = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass border-secondary/30 font-semibold text-sm mb-6 animate-fade-in-up">
-            <Heart className="w-4 h-4 text-primary" />
-            {t.philosophy.badge}
-          </span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-            {t.philosophy.title}
-          </h2>
-          <p className="text-lg sm:text-xl text-muted-foreground animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-            {t.philosophy.description}
-          </p>
+          <ScrollReveal animation="fade-up">
+            <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass border-secondary/30 font-semibold text-sm mb-6">
+              <Heart className="w-4 h-4 text-primary" />
+              {t.philosophy.badge}
+            </span>
+          </ScrollReveal>
+          <ScrollReveal animation="fade-up" delay={100}>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+              {t.philosophy.title}
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal animation="fade-up" delay={200}>
+            <p className="text-lg sm:text-xl text-muted-foreground">
+              {t.philosophy.description}
+            </p>
+          </ScrollReveal>
         </div>
 
         {/* Features grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-20">
+        <div 
+          ref={featuresRef as React.RefObject<HTMLDivElement>}
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-20"
+        >
           {features.map((feature, index) => (
             <div
               key={feature.title}
-              className="group relative p-8 rounded-3xl glass border-border/30 hover-lift hover-glow transition-all duration-500 animate-fade-in-up"
-              style={{ animationDelay: `${0.1 * index}s` }}
+              className="group relative p-8 rounded-3xl glass border-border/30 hover-lift transition-all duration-500"
+              style={getItemStyle(index)}
             >
               {/* Gradient background on hover */}
               <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
@@ -90,27 +102,32 @@ const Philosophy = () => {
         </div>
 
         {/* Stats */}
-        <div className="glass rounded-3xl p-8 lg:p-12 border-border/30">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div 
-                key={stat.label} 
-                className="text-center group animate-fade-in-up"
-                style={{ animationDelay: `${0.1 * index}s` }}
-              >
-                <div className="text-4xl mb-3 group-hover:scale-125 transition-transform duration-300">
-                  {stat.icon}
+        <ScrollReveal animation="scale">
+          <div 
+            ref={statsRef as React.RefObject<HTMLDivElement>}
+            className="glass rounded-3xl p-8 lg:p-12 border-border/30"
+          >
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {stats.map((stat, index) => (
+                <div 
+                  key={stat.label} 
+                  className="text-center group"
+                  style={getStatStyle(index)}
+                >
+                  <div className="text-4xl mb-3 group-hover:scale-125 transition-transform duration-300">
+                    {stat.icon}
+                  </div>
+                  <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gradient mb-2">
+                    {stat.number}
+                  </div>
+                  <div className="text-muted-foreground font-medium">
+                    {stat.label}
+                  </div>
                 </div>
-                <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gradient mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-muted-foreground font-medium">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
