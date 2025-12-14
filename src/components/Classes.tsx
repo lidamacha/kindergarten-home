@@ -1,9 +1,11 @@
 import { Baby, GraduationCap, BookOpen, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { ScrollReveal, useStaggerAnimation } from "@/hooks/useScrollAnimation";
 
 const Classes = () => {
   const { t } = useLanguage();
+  const { ref: gridRef, getItemStyle } = useStaggerAnimation(3, { staggerDelay: 150 });
 
   const classes = [
     {
@@ -45,27 +47,36 @@ const Classes = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass border-sky/30 font-semibold text-sm mb-6 animate-fade-in-up">
-            <GraduationCap className="w-4 h-4 text-sky" />
-            {t.classes.badge}
-          </span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-            {t.classes.title}
-          </h2>
-          <p className="text-lg sm:text-xl text-muted-foreground animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-            {t.classes.description}
-          </p>
+          <ScrollReveal animation="fade-up">
+            <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass border-sky/30 font-semibold text-sm mb-6">
+              <GraduationCap className="w-4 h-4 text-sky" />
+              {t.classes.badge}
+            </span>
+          </ScrollReveal>
+          <ScrollReveal animation="fade-up" delay={100}>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+              {t.classes.title}
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal animation="fade-up" delay={200}>
+            <p className="text-lg sm:text-xl text-muted-foreground">
+              {t.classes.description}
+            </p>
+          </ScrollReveal>
         </div>
 
         {/* Classes grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div 
+          ref={gridRef as React.RefObject<HTMLDivElement>}
+          className="grid md:grid-cols-3 gap-8"
+        >
           {classes.map((classItem, index) => (
             <div
               key={classItem.title}
-              className={`group relative rounded-3xl overflow-hidden transition-all duration-500 hover-lift animate-fade-in-up ${
+              className={`group relative rounded-3xl overflow-hidden transition-all duration-500 hover-lift ${
                 classItem.featured ? 'md:-mt-4 md:mb-4' : ''
               }`}
-              style={{ animationDelay: `${0.1 * index}s` }}
+              style={getItemStyle(index)}
             >
               {/* Card background */}
               <div className={`absolute inset-0 bg-gradient-to-br ${classItem.bgGradient}`} />
