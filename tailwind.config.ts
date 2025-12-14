@@ -67,6 +67,7 @@ export default {
         sun: "hsl(var(--sun))",
         grass: "hsl(var(--grass))",
         lavender: "hsl(var(--lavender))",
+        peach: "hsl(var(--peach))",
       },
       borderRadius: {
         lg: "var(--radius)",
