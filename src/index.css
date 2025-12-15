@@ -6,61 +6,62 @@
 
 @layer base {
   :root {
-    /* Fresh, vibrant color palette */
-    --background: 210 40% 98%;
-    --foreground: 222 47% 15%;
+    /* Fresh kindergarten color palette - Pink, Blue, Teal, Green */
+    --background: 335 72% 97%;
+    --foreground: 202 80% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 15%;
+    --card-foreground: 202 80% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 15%;
+    --popover-foreground: 202 80% 20%;
 
-    /* Vibrant coral pink */
-    --primary: 345 82% 60%;
-    --primary-foreground: 0 0% 100%;
+    /* Soft Pink - #F6B1CE */
+    --primary: 335 72% 83%;
+    --primary-foreground: 202 80% 20%;
 
-    /* Fresh mint */
-    --secondary: 158 64% 88%;
-    --secondary-foreground: 158 70% 28%;
+    /* Deep Blue - #1581BF */
+    --secondary: 202 80% 42%;
+    --secondary-foreground: 0 0% 100%;
 
-    /* Soft cloud */
-    --muted: 210 30% 96%;
-    --muted-foreground: 222 20% 45%;
+    /* Soft Green - #CCE5CF */
+    --muted: 127 31% 85%;
+    --muted-foreground: 202 60% 35%;
 
-    /* Sunny golden */
-    --accent: 42 100% 62%;
-    --accent-foreground: 42 100% 15%;
+    /* Teal - #3DB6B1 */
+    --accent: 178 50% 48%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 345 82% 60%;
+    --border: 335 40% 90%;
+    --input: 335 40% 90%;
+    --ring: 202 80% 42%;
 
     --radius: 1.5rem;
 
-    /* Playful theme colors */
-    --sky: 199 89% 68%;
-    --sky-foreground: 199 90% 18%;
+    /* Theme colors */
+    --sky: 202 80% 42%;
+    --sky-foreground: 0 0% 100%;
     --sun: 42 100% 58%;
-    --grass: 152 62% 48%;
-    --lavender: 262 83% 78%;
-    --peach: 20 95% 75%;
+    --grass: 178 50% 48%;
+    --lavender: 335 72% 83%;
+    --peach: 335 60% 78%;
+    --teal: 178 50% 48%;
 
-    /* Modern gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(210 40% 98%) 0%, hsl(262 60% 97%) 35%, hsl(345 50% 96%) 70%, hsl(42 60% 96%) 100%);
-    --gradient-sunset: linear-gradient(180deg, hsl(345 60% 90%) 0%, hsl(42 80% 88%) 100%);
-    --gradient-ocean: linear-gradient(135deg, hsl(199 80% 85%) 0%, hsl(262 70% 88%) 100%);
-    --gradient-rainbow: linear-gradient(90deg, hsl(345 82% 65%), hsl(42 100% 62%), hsl(152 62% 48%), hsl(199 89% 68%), hsl(262 83% 78%));
+    /* Modern gradients using new palette */
+    --gradient-hero: linear-gradient(135deg, hsl(335 72% 97%) 0%, hsl(335 72% 93%) 35%, hsl(127 31% 92%) 70%, hsl(178 50% 90%) 100%);
+    --gradient-sunset: linear-gradient(180deg, hsl(335 72% 88%) 0%, hsl(178 50% 78%) 100%);
+    --gradient-ocean: linear-gradient(135deg, hsl(202 80% 75%) 0%, hsl(178 50% 70%) 100%);
+    --gradient-rainbow: linear-gradient(90deg, hsl(335 72% 83%), hsl(202 80% 42%), hsl(178 50% 48%), hsl(127 31% 85%));
     --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
 
     /* Enhanced shadows */
-    --shadow-soft: 0 4px 24px -4px hsl(345 50% 50% / 0.12);
-    --shadow-playful: 0 12px 40px -8px hsl(345 60% 50% / 0.18);
-    --shadow-float: 0 24px 50px -12px hsl(345 60% 50% / 0.22);
-    --shadow-glow: 0 0 40px hsl(345 80% 60% / 0.25);
+    --shadow-soft: 0 4px 24px -4px hsl(202 50% 50% / 0.12);
+    --shadow-playful: 0 12px 40px -8px hsl(335 60% 50% / 0.18);
+    --shadow-float: 0 24px 50px -12px hsl(202 60% 50% / 0.22);
+    --shadow-glow: 0 0 40px hsl(178 60% 50% / 0.25);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -69,54 +70,55 @@
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 202 80% 42%;
   }
 
   .dark {
-    --background: 222 47% 8%;
-    --foreground: 210 40% 98%;
+    --background: 202 40% 10%;
+    --foreground: 335 50% 95%;
 
-    --card: 222 47% 12%;
-    --card-foreground: 210 40% 98%;
+    --card: 202 40% 14%;
+    --card-foreground: 335 50% 95%;
 
-    --popover: 222 47% 12%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 202 40% 14%;
+    --popover-foreground: 335 50% 95%;
 
-    --primary: 345 82% 65%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 335 72% 75%;
+    --primary-foreground: 202 80% 15%;
 
-    --secondary: 158 30% 20%;
-    --secondary-foreground: 158 64% 88%;
+    --secondary: 202 60% 35%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 222 30% 18%;
-    --muted-foreground: 210 20% 70%;
+    --muted: 202 30% 18%;
+    --muted-foreground: 335 30% 70%;
 
-    --accent: 42 80% 50%;
-    --accent-foreground: 42 100% 95%;
+    --accent: 178 40% 40%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 222 30% 22%;
-    --input: 222 30% 22%;
-    --ring: 345 82% 65%;
+    --border: 202 30% 22%;
+    --input: 202 30% 22%;
+    --ring: 335 72% 75%;
 
-    --sky: 199 70% 55%;
-    --sky-foreground: 199 20% 95%;
+    --sky: 202 60% 50%;
+    --sky-foreground: 0 0% 100%;
     --sun: 42 80% 55%;
-    --grass: 152 50% 45%;
-    --lavender: 262 60% 70%;
-    --peach: 20 70% 60%;
+    --grass: 178 40% 40%;
+    --lavender: 335 50% 70%;
+    --peach: 335 50% 65%;
+    --teal: 178 40% 40%;
 
-    --gradient-hero: linear-gradient(135deg, hsl(222 47% 8%) 0%, hsl(262 40% 12%) 35%, hsl(345 30% 12%) 70%, hsl(42 40% 10%) 100%);
-    --gradient-sunset: linear-gradient(180deg, hsl(345 40% 18%) 0%, hsl(42 50% 15%) 100%);
-    --gradient-ocean: linear-gradient(135deg, hsl(199 50% 20%) 0%, hsl(262 50% 22%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(202 40% 10%) 0%, hsl(335 30% 15%) 35%, hsl(178 30% 15%) 70%, hsl(127 20% 12%) 100%);
+    --gradient-sunset: linear-gradient(180deg, hsl(335 40% 20%) 0%, hsl(178 40% 18%) 100%);
+    --gradient-ocean: linear-gradient(135deg, hsl(202 50% 25%) 0%, hsl(178 40% 22%) 100%);
     --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 100%);
 
     --shadow-soft: 0 4px 24px -4px hsl(0 0% 0% / 0.3);
     --shadow-playful: 0 12px 40px -8px hsl(0 0% 0% / 0.4);
     --shadow-float: 0 24px 50px -12px hsl(0 0% 0% / 0.5);
-    --shadow-glow: 0 0 40px hsl(345 80% 60% / 0.15);
+    --shadow-glow: 0 0 40px hsl(178 50% 50% / 0.15);
   }
 }
 
@@ -125,7 +127,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-quicksand antialiased;
+    @apply bg-background text-foreground font-poppins antialiased;
   }
   html {
     scroll-behavior: smooth;
@@ -143,7 +145,7 @@
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-lavender to-sky;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-secondary via-accent to-grass;
   }
 
   .gradient-border {

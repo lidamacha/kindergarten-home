@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Palette, Instagram, Facebook } from "lucide-react";
+import { Menu, X, Instagram, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,9 +34,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-peach flex items-center justify-center shadow-soft group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-              <Palette className="w-6 h-6 text-white" />
-            </div>
+            <img 
+              src={logo} 
+              alt="Χρώματα και Γέλια Logo" 
+              className="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300"
+            />
             <div className="hidden sm:block">
               <span className="text-xl font-bold text-foreground block leading-tight">
                 {language === "el" ? "Χρώματα" : "Colors"}
@@ -90,7 +93,7 @@ const Navbar = () => {
                 onClick={() => setLanguage("el")}
                 className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                   language === "el"
-                    ? "bg-gradient-to-r from-primary to-peach text-white shadow-soft"
+                    ? "bg-gradient-to-r from-secondary to-accent text-white shadow-soft"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -100,7 +103,7 @@ const Navbar = () => {
                 onClick={() => setLanguage("en")}
                 className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                   language === "en"
-                    ? "bg-gradient-to-r from-primary to-peach text-white shadow-soft"
+                    ? "bg-gradient-to-r from-secondary to-accent text-white shadow-soft"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -175,7 +178,7 @@ const Navbar = () => {
                     onClick={() => setLanguage("el")}
                     className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                       language === "el"
-                        ? "bg-gradient-to-r from-primary to-peach text-white"
+                        ? "bg-gradient-to-r from-secondary to-accent text-white"
                         : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
@@ -185,7 +188,7 @@ const Navbar = () => {
                     onClick={() => setLanguage("en")}
                     className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                       language === "en"
-                        ? "bg-gradient-to-r from-primary to-peach text-white"
+                        ? "bg-gradient-to-r from-secondary to-accent text-white"
                         : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
