@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        quicksand: ["Quicksand", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -68,6 +68,7 @@ export default {
         grass: "hsl(var(--grass))",
         lavender: "hsl(var(--lavender))",
         peach: "hsl(var(--peach))",
+        teal: "hsl(var(--teal))",
       },
       borderRadius: {
         lg: "var(--radius)",
