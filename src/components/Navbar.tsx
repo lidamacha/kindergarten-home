@@ -111,9 +111,6 @@ const Navbar = () => {
               </button>
             </div>
 
-            <Button variant="hero" size="default" className="shadow-soft hover:shadow-playful">
-              {t.nav.register}
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -197,9 +194,6 @@ const Navbar = () => {
                 </div>
               </div>
 
-              <Button variant="hero" size="lg" className="w-full mt-2">
-                {t.nav.register}
-              </Button>
             </div>
           </div>
         )}

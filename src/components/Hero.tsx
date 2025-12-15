@@ -1,6 +1,6 @@
 import { Sparkles, ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-kids.jpg";
+import heroImage from "@/assets/hero-playground.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
@@ -57,26 +57,6 @@ const Hero = () => {
               </Button>
             </div>
 
-            {/* Trust badges */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 pt-4 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
-              <div className="flex items-center gap-2">
-                <div className="flex -space-x-2">
-                  {[...Array(4)].map((_, i) => (
-                    <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-primary/30 to-accent/30 border-2 border-card flex items-center justify-center text-xs">
-                      👶
-                    </div>
-                  ))}
-                </div>
-                <span className="text-sm text-muted-foreground font-medium">150+</span>
-              </div>
-              <div className="h-6 w-px bg-border" />
-              <div className="flex items-center gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-accent text-lg">★</span>
-                ))}
-                <span className="text-sm text-muted-foreground font-medium ml-1">5.0</span>
-              </div>
-            </div>
           </div>
 
           {/* Hero Image */}
@@ -109,18 +89,6 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Floating badge - Rating */}
-            <div className="absolute -top-2 -right-2 lg:-right-6 glass rounded-2xl p-4 shadow-playful animate-bounce-soft" style={{ animationDelay: "0.5s" }}>
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent to-sun flex items-center justify-center">
-                  <span className="text-lg">⭐</span>
-                </div>
-                <div>
-                  <p className="font-bold text-foreground">5.0</p>
-                  <p className="text-xs text-muted-foreground">Rating</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
