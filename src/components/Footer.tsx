@@ -58,7 +58,7 @@ const Footer = () => {
             <div className="flex items-center gap-4">
               <span className="text-sm text-primary-foreground/70">{t.footer.followUs}:</span>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/chromatakaigelia.preschool/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-xl bg-primary-foreground/10 hover:bg-gradient-to-br hover:from-primary hover:to-peach flex items-center justify-center transition-all duration-300 hover:scale-110"
@@ -67,7 +67,7 @@ const Footer = () => {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/chromatakaigelia.preschool/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-xl bg-primary-foreground/10 hover:bg-gradient-to-br hover:from-sky hover:to-lavender flex items-center justify-center transition-all duration-300 hover:scale-110"

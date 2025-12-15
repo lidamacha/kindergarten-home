@@ -68,7 +68,7 @@ const Navbar = () => {
             {/* Social Links */}
             <div className="flex items-center gap-1">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/chromatakaigelia.preschool/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2.5 rounded-xl hover:bg-primary/10 transition-all duration-300 text-foreground/70 hover:text-primary hover:scale-110"
@@ -77,7 +77,7 @@ const Navbar = () => {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/chromatakaigelia.preschool/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2.5 rounded-xl hover:bg-primary/10 transition-all duration-300 text-foreground/70 hover:text-primary hover:scale-110"
@@ -149,7 +149,7 @@ const Navbar = () => {
               {/* Mobile Social Links */}
               <div className="flex items-center gap-4 px-4 py-3 border-t border-border/30 mt-2 pt-4">
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/chromatakaigelia.preschool/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-foreground/70 hover:text-primary transition-colors"
@@ -158,7 +158,7 @@ const Navbar = () => {
                   <span className="text-sm font-medium">Instagram</span>
                 </a>
                 <a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/chromatakaigelia.preschool/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-foreground/70 hover:text-primary transition-colors"
