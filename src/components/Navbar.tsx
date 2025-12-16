@@ -27,23 +27,23 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       scrolled 
-        ? 'glass shadow-soft py-2' 
-        : 'bg-transparent py-4'
+        ? 'glass shadow-soft py-1' 
+        : 'bg-transparent py-2'
     }`}>
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-3 group">
+          <a href="#home" className="flex items-center gap-4 group">
             <img 
               src={logo} 
               alt="Χρώματα και Γέλια Logo" 
-              className="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300"
+              className="w-24 h-24 object-contain group-hover:scale-110 transition-transform duration-300"
             />
             <div className="hidden sm:block">
-              <span className="text-xl font-bold text-foreground block leading-tight">
+              <span className="text-2xl font-bold text-foreground block leading-tight">
                 {language === "el" ? "Χρώματα" : "Colors"}
               </span>
-              <span className="text-sm font-medium text-muted-foreground leading-tight">
+              <span className="text-xl font-bold text-foreground leading-tight">
                 {language === "el" ? "& Γέλια" : "& Laughter"}
               </span>
             </div>
