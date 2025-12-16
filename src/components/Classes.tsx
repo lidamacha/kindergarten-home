@@ -2,6 +2,7 @@ import { Baby, GraduationCap, BookOpen, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ScrollReveal, useStaggerAnimation } from "@/hooks/useScrollAnimation";
+import { Link } from "react-router-dom";
 
 const Classes = () => {
   const { t } = useLanguage();
@@ -16,6 +17,7 @@ const Classes = () => {
       gradient: "from-primary to-peach",
       bgGradient: "from-primary/15 to-peach/10",
       features: ["🧸", "🎵", "🖍️"],
+      link: "/nipia",
     },
     {
       icon: BookOpen,
@@ -26,6 +28,7 @@ const Classes = () => {
       bgGradient: "from-accent/20 to-sun/10",
       features: ["📚", "🎨", "🌱"],
       featured: true,
+      link: "/pronipia",
     },
     {
       icon: GraduationCap,
@@ -35,6 +38,7 @@ const Classes = () => {
       gradient: "from-sky to-lavender",
       bgGradient: "from-sky/20 to-lavender/10",
       features: ["✏️", "🔢", "🌍"],
+      link: "/proscholiko",
     },
   ];
 
@@ -116,10 +120,12 @@ const Classes = () => {
                 </div>
 
                 {/* CTA */}
-                <Button variant="outline" className="w-full group/btn glass">
-                  Learn More
-                  <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                </Button>
+                <Link to={classItem.link}>
+                  <Button variant="outline" className="w-full group/btn glass">
+                    Learn More
+                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
               </div>
             </div>
           ))}
