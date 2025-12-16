@@ -1,55 +1,45 @@
-import { Palette, Music, BookOpen, TreePine, Puzzle, Users } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ScrollReveal, useStaggerAnimation } from "@/hooks/useScrollAnimation";
+import { Palette } from "lucide-react";
+
+import activityArt from "@/assets/activity-art.jpg";
+import activityVisits from "@/assets/activity-visits.jpg";
+import activityEnglish from "@/assets/activity-english.jpg";
+import activityScience from "@/assets/activity-science.jpg";
+import activityMusic from "@/assets/activity-music.jpg";
 
 const Activities = () => {
-  const { t } = useLanguage();
-  const { ref: gridRef, isVisible, getItemStyle } = useStaggerAnimation(6, { staggerDelay: 100 });
+  const { language } = useLanguage();
+  const { ref: gridRef, getItemStyle } = useStaggerAnimation(5, { staggerDelay: 100 });
 
-  const activities = [
-    {
-      icon: Palette,
-      title: t.activities.items.art.title,
-      description: t.activities.items.art.description,
-      gradient: "from-primary to-peach",
-      bgGradient: "from-primary/10 via-primary/5 to-transparent",
+  const content = {
+    el: {
+      badge: "Δραστηριότητες",
+      title: "Κάθε μέρα μια νέα περιπέτεια",
+      description: "Προσφέρουμε ένα πλούσιο πρόγραμμα δραστηριοτήτων που βοηθούν τα παιδιά να αναπτυχθούν σωματικά, πνευματικά και συναισθηματικά.",
+      activities: [
+        { title: "Εικαστικά", description: "Ζωγραφική, χειροτεχνίες και καλλιτεχνική έκφραση", image: activityArt },
+        { title: "Επισκέψεις", description: "Εκπαιδευτικές εκδρομές και εξερεύνηση του κόσμου", image: activityVisits },
+        { title: "Αγγλικά", description: "Πρώτη επαφή με την αγγλική γλώσσα μέσα από το παιχνίδι", image: activityEnglish },
+        { title: "Επιστήμες", description: "Πειράματα και ανακάλυψη της φύσης", image: activityScience },
+        { title: "Μουσική-Κίνηση-Ρυθμός", description: "Τραγούδι, χορός και ρυθμική αγωγή", image: activityMusic },
+      ],
     },
-    {
-      icon: Music,
-      title: t.activities.items.music.title,
-      description: t.activities.items.music.description,
-      gradient: "from-accent to-sun",
-      bgGradient: "from-accent/20 via-accent/10 to-transparent",
+    en: {
+      badge: "Activities",
+      title: "Every day a new adventure",
+      description: "We offer a rich program of activities that help children develop physically, mentally and emotionally.",
+      activities: [
+        { title: "Visual Arts", description: "Painting, crafts and artistic expression", image: activityArt },
+        { title: "Field Trips", description: "Educational excursions and world exploration", image: activityVisits },
+        { title: "English", description: "First contact with English language through play", image: activityEnglish },
+        { title: "Sciences", description: "Experiments and nature discovery", image: activityScience },
+        { title: "Music-Movement-Rhythm", description: "Singing, dancing and rhythmic education", image: activityMusic },
+      ],
     },
-    {
-      icon: BookOpen,
-      title: t.activities.items.stories.title,
-      description: t.activities.items.stories.description,
-      gradient: "from-lavender to-primary",
-      bgGradient: "from-lavender/20 via-lavender/10 to-transparent",
-    },
-    {
-      icon: TreePine,
-      title: t.activities.items.nature.title,
-      description: t.activities.items.nature.description,
-      gradient: "from-grass to-secondary",
-      bgGradient: "from-grass/15 via-grass/5 to-transparent",
-    },
-    {
-      icon: Puzzle,
-      title: t.activities.items.puzzles.title,
-      description: t.activities.items.puzzles.description,
-      gradient: "from-sky to-lavender",
-      bgGradient: "from-sky/20 via-sky/10 to-transparent",
-    },
-    {
-      icon: Users,
-      title: t.activities.items.team.title,
-      description: t.activities.items.team.description,
-      gradient: "from-peach to-primary",
-      bgGradient: "from-peach/20 via-peach/10 to-transparent",
-    },
-  ];
+  };
+
+  const t = content[language];
 
   return (
     <section id="activities" className="py-24 relative overflow-hidden" style={{ background: 'var(--gradient-ocean)' }}>
@@ -63,17 +53,17 @@ const Activities = () => {
           <ScrollReveal animation="fade-up">
             <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass border-accent/30 font-semibold text-sm mb-6">
               <Palette className="w-4 h-4 text-accent" />
-              {t.activities.badge}
+              {t.badge}
             </span>
           </ScrollReveal>
           <ScrollReveal animation="fade-up" delay={100}>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              {t.activities.title}
+              {t.title}
             </h2>
           </ScrollReveal>
           <ScrollReveal animation="fade-up" delay={200}>
             <p className="text-lg sm:text-xl text-muted-foreground">
-              {t.activities.description}
+              {t.description}
             </p>
           </ScrollReveal>
         </div>
@@ -83,29 +73,30 @@ const Activities = () => {
           ref={gridRef as React.RefObject<HTMLDivElement>}
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {activities.map((activity, index) => (
+          {t.activities.map((activity, index) => (
             <div
               key={activity.title}
-              className="group relative glass rounded-3xl p-8 border-border/30 hover-lift transition-all duration-500"
+              className="group relative glass rounded-3xl overflow-hidden border-border/30 hover-lift transition-all duration-500"
               style={getItemStyle(index)}
             >
-              {/* Hover gradient */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${activity.bgGradient} rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+              {/* Image */}
+              <div className="aspect-[4/3] overflow-hidden">
+                <img 
+                  src={activity.image} 
+                  alt={activity.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
               
-              <div className="relative z-10">
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${activity.gradient} flex items-center justify-center mb-6 shadow-soft group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300`}>
-                  <activity.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">
+              {/* Content */}
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-foreground mb-2">
                   {activity.title}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
                   {activity.description}
                 </p>
               </div>
-
-              {/* Decorative corner */}
-              <div className={`absolute top-4 right-4 w-12 h-12 rounded-full bg-gradient-to-br ${activity.gradient} opacity-10 group-hover:opacity-20 transition-opacity`} />
             </div>
           ))}
         </div>
