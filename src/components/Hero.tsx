@@ -76,7 +76,7 @@ const Hero = () => {
                   <span className="text-xl">🎨</span>
                 </div>
                 <div>
-                  <p className="font-bold text-foreground">20+ {t.hero.experience}</p>
+                  <p className="font-bold text-foreground">30+ {t.hero.experience}</p>
                   <p className="text-xs text-muted-foreground">{t.hero.years}</p>
                 </div>
               </div>

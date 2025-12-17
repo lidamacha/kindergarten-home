@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Nipia from "./pages/Nipia";
 import Pronipia from "./pages/Pronipia";
 import Proscholiko from "./pages/Proscholiko";
+import OStathmos from "./pages/OStathmos";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
             <Route path="/nipia" element={<Nipia />} />
             <Route path="/pronipia" element={<Pronipia />} />
             <Route path="/proscholiko" element={<Proscholiko />} />
+            <Route path="/o-stathmos" element={<OStathmos />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
