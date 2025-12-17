@@ -18,6 +18,7 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
+    { name: language === "el" ? "Ο Σταθμός" : "Our Center", href: "/o-stathmos" },
     { name: t.nav.philosophy, href: "#philosophy" },
     { name: t.nav.activities, href: "#activities" },
     { name: t.nav.classes, href: "#classes" },
@@ -40,8 +41,11 @@ const Navbar = () => {
               className="w-24 h-24 object-contain group-hover:scale-110 transition-transform duration-300"
             />
             <div className="hidden sm:block">
-              <span className="text-xl font-bold text-foreground leading-tight">
+              <span className="text-xl font-bold text-foreground leading-tight block">
                 {language === "el" ? "Χρώματα & Γέλια" : "Colors & Laughter"}
+              </span>
+              <span className="text-xs text-muted-foreground leading-tight">
+                {language === "el" ? "Παιδικός Σταθμός και Νηπιαγωγείο" : "Daycare & Kindergarten"}
               </span>
             </div>
           </a>
