@@ -147,12 +147,12 @@ const Philosophy = () => {
         </div>
       </div>
 
-      {/* Wave decoration at bottom */}
+      {/* Wave decoration at bottom - matches Activities gradient-ocean start color */}
       <div className="absolute -bottom-1 left-0 right-0">
         <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" preserveAspectRatio="none">
           <path
             d="M0 80L60 74C120 68 240 56 360 50C480 44 600 44 720 53C840 62 960 80 1080 86C1200 92 1320 86 1380 83L1440 80V120H0Z"
-            fill="hsl(var(--background))"
+            fill="hsl(210 100% 96%)"
           />
         </svg>
       </div>
