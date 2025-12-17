@@ -31,15 +31,8 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
           <div className="space-y-8 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass border-primary/20 animate-fade-in-up">
-              <Sparkles className="w-4 h-4 text-primary animate-pulse" />
-              <span className="text-sm font-semibold text-foreground">{t.hero.title1} {t.hero.title2}</span>
-            </div>
-
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
               <span className="text-foreground">{t.hero.welcome}</span>
-              <br />
-              <span className="text-gradient">{t.hero.title1} {t.hero.title2}</span>
             </h1>
 
             <p className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>

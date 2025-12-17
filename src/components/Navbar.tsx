@@ -40,11 +40,8 @@ const Navbar = () => {
               className="w-24 h-24 object-contain group-hover:scale-110 transition-transform duration-300"
             />
             <div className="hidden sm:block">
-              <span className="text-2xl font-bold text-foreground block leading-tight">
-                {language === "el" ? "Χρώματα" : "Colors"}
-              </span>
               <span className="text-xl font-bold text-foreground leading-tight">
-                {language === "el" ? "& Γέλια" : "& Laughter"}
+                {language === "el" ? "Χρώματα & Γέλια" : "Colors & Laughter"}
               </span>
             </div>
           </a>
