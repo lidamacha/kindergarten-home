@@ -32,16 +32,16 @@ const Navbar = () => {
         : 'bg-transparent py-2'
     }`}>
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-4 group">
+          <a href="/" className="flex items-center gap-4 group">
             <img 
               src={logo} 
               alt="Χρώματα και Γέλια Logo" 
-              className="w-24 h-24 object-contain group-hover:scale-110 transition-transform duration-300"
+              className="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-300"
             />
             <div className="hidden sm:block">
-              <span className="text-xl font-bold text-foreground leading-tight block">
+              <span className="text-2xl font-bold text-foreground leading-tight block">
                 {language === "el" ? "Χρώματα & Γέλια" : "Colors & Laughter"}
               </span>
               <span className="text-xs text-muted-foreground leading-tight">

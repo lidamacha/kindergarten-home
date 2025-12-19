@@ -56,11 +56,14 @@ const Activities = () => {
       <div className="absolute top-20 left-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-10 w-60 h-60 bg-primary/10 rounded-full blur-3xl" />
       
-      {/* Floating decorative elements */}
-      <div className="absolute top-32 right-[15%] w-8 h-8 rounded-full bg-gradient-to-br from-primary/40 to-peach/30 animate-float" style={{ animationDelay: "0s" }} />
-      <div className="absolute top-1/2 left-[8%] w-6 h-6 rounded-full bg-gradient-to-br from-accent/40 to-sun/30 animate-float" style={{ animationDelay: "0.5s" }} />
-      <div className="absolute bottom-40 right-[5%] w-10 h-10 rounded-full bg-gradient-to-br from-secondary/40 to-grass/30 animate-float" style={{ animationDelay: "1s" }} />
-      <div className="absolute top-1/4 left-[20%] w-4 h-4 rounded-full bg-gradient-to-br from-sky/50 to-lavender/30 animate-float" style={{ animationDelay: "1.5s" }} />
+      {/* Floating decorative elements - enhanced */}
+      <div className="absolute top-32 right-[15%] w-16 h-16 rounded-full bg-gradient-to-br from-primary/50 to-peach/40 animate-float-slow" style={{ animationDelay: "0s" }} />
+      <div className="absolute top-1/2 left-[8%] w-12 h-12 rounded-full bg-gradient-to-br from-accent/50 to-sun/40 animate-float" style={{ animationDelay: "0.5s" }} />
+      <div className="absolute bottom-40 right-[5%] w-20 h-20 rounded-full bg-gradient-to-br from-secondary/50 to-grass/40 animate-float-slow" style={{ animationDelay: "1s" }} />
+      <div className="absolute top-1/4 left-[20%] w-10 h-10 rounded-full bg-gradient-to-br from-sky/60 to-lavender/40 animate-float" style={{ animationDelay: "1.5s" }} />
+      <div className="absolute top-[70%] right-[25%] w-8 h-8 rounded-full bg-gradient-to-br from-lavender/50 to-primary/30 animate-float" style={{ animationDelay: "2s" }} />
+      <div className="absolute top-[20%] left-[60%] w-14 h-14 rounded-full bg-gradient-to-br from-peach/50 to-accent/30 animate-float-slow" style={{ animationDelay: "2.5s" }} />
+      <div className="absolute bottom-[30%] left-[3%] w-6 h-6 rounded-full bg-gradient-to-br from-grass/50 to-secondary/30 animate-float" style={{ animationDelay: "1.8s" }} />
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
