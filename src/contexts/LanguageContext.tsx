@@ -143,9 +143,9 @@ const translations: Record<Language, Translations> = {
       title: "Τα τμήματά μας",
       description: "Προσφέρουμε εξειδικευμένα προγράμματα για κάθε ηλικιακή ομάδα, προσαρμοσμένα στις ανάγκες κάθε παιδιού.",
       items: {
-        infant: { title: "Νήπια", ages: "2.5 - 4 ετών", description: "Πρώτες εμπειρίες μάθησης μέσα από το παιχνίδι και την εξερεύνηση σε ένα ζεστό περιβάλλον." },
-        preschool: { title: "Προνήπια", ages: "4 - 5 ετών", description: "Ανάπτυξη κοινωνικών δεξιοτήτων, γλώσσας και πρώτες γνώσεις αριθμητικής." },
-        prek: { title: "Προσχολικό", ages: "5 - 6 ετών", description: "Προετοιμασία για το δημοτικό με έμφαση στην ανάγνωση, γραφή και μαθηματικά." },
+        infant: { title: "Μεταβρεφικό", ages: "1.5 - 2.5 ετών", description: "Πρώτες εμπειρίες μάθησης μέσα από το παιχνίδι και την εξερεύνηση σε ένα ζεστό περιβάλλον." },
+        preschool: { title: "Προνήπιο", ages: "2.5 - 4 ετών", description: "Ανάπτυξη κοινωνικών δεξιοτήτων, γλώσσας και πρώτες γνώσεις αριθμητικής." },
+        prek: { title: "Νηπιαγωγείο", ages: "4 - 6 ετών", description: "Προετοιμασία για το δημοτικό με έμφαση στην ανάγνωση, γραφή και μαθηματικά." },
       },
     },
     contact: {
@@ -229,9 +229,9 @@ const translations: Record<Language, Translations> = {
       title: "Our classes",
       description: "We offer specialized programs for each age group, tailored to the needs of each child.",
       items: {
-        infant: { title: "Toddlers", ages: "2.5 - 4 years", description: "First learning experiences through play and exploration in a warm environment." },
-        preschool: { title: "Preschool", ages: "4 - 5 years", description: "Development of social skills, language and first numeracy knowledge." },
-        prek: { title: "Pre-K", ages: "5 - 6 years", description: "Preparation for elementary school with emphasis on reading, writing and mathematics." },
+        infant: { title: "Infant Care", ages: "1.5 - 2.5 years", description: "First learning experiences through play and exploration in a warm environment." },
+        preschool: { title: "Pre-Nursery", ages: "2.5 - 4 years", description: "Development of social skills, language and first numeracy knowledge." },
+        prek: { title: "Kindergarten", ages: "4 - 6 years", description: "Preparation for elementary school with emphasis on reading, writing and mathematics." },
       },
     },
     contact: {

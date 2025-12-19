@@ -5,6 +5,7 @@ import Activities from "@/components/Activities";
 import Classes from "@/components/Classes";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import CookieConsent from "@/components/CookieConsent";
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
       <Classes />
       <Contact />
       <Footer />
+      <CookieConsent />
     </main>
   );
 };

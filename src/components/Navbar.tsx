@@ -52,16 +52,35 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="relative px-4 py-2 text-foreground/80 hover:text-primary font-medium rounded-xl transition-all duration-300 hover:bg-primary/5 group"
-              >
-                {link.name}
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-primary to-accent rounded-full group-hover:w-1/2 transition-all duration-300" />
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isExternal = link.href.startsWith('/');
+              const isHashLink = link.href.startsWith('#');
+              
+              const handleClick = (e: React.MouseEvent) => {
+                if (isHashLink) {
+                  e.preventDefault();
+                  // If we're not on homepage, navigate there first
+                  if (window.location.pathname !== '/') {
+                    window.location.href = '/' + link.href;
+                  } else {
+                    const element = document.querySelector(link.href);
+                    element?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }
+              };
+              
+              return (
+                <a
+                  key={link.name}
+                  href={isHashLink && window.location.pathname !== '/' ? '/' + link.href : link.href}
+                  onClick={handleClick}
+                  className="relative px-4 py-2 text-foreground/80 hover:text-primary font-medium rounded-xl transition-all duration-300 hover:bg-primary/5 group"
+                >
+                  {link.name}
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-primary to-accent rounded-full group-hover:w-1/2 transition-all duration-300" />
+                </a>
+              );
+            })}
           </div>
 
           {/* Right side: Social + Language + Register */}
@@ -132,17 +151,34 @@ const Navbar = () => {
         {isOpen && (
           <div className="lg:hidden py-6 animate-fade-in-up">
             <div className="glass rounded-2xl p-4 border-border/30 space-y-2">
-              {navLinks.map((link, index) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="block px-4 py-3 text-foreground/80 hover:text-primary font-medium rounded-xl transition-all duration-300 hover:bg-primary/5 animate-fade-in-up"
-                  style={{ animationDelay: `${0.05 * index}s` }}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </a>
-              ))}
+              {navLinks.map((link, index) => {
+                const isHashLink = link.href.startsWith('#');
+                
+                const handleClick = (e: React.MouseEvent) => {
+                  setIsOpen(false);
+                  if (isHashLink) {
+                    e.preventDefault();
+                    if (window.location.pathname !== '/') {
+                      window.location.href = '/' + link.href;
+                    } else {
+                      const element = document.querySelector(link.href);
+                      element?.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }
+                };
+                
+                return (
+                  <a
+                    key={link.name}
+                    href={isHashLink && window.location.pathname !== '/' ? '/' + link.href : link.href}
+                    className="block px-4 py-3 text-foreground/80 hover:text-primary font-medium rounded-xl transition-all duration-300 hover:bg-primary/5 animate-fade-in-up"
+                    style={{ animationDelay: `${0.05 * index}s` }}
+                    onClick={handleClick}
+                  >
+                    {link.name}
+                  </a>
+                );
+              })}
               
               {/* Mobile Social Links */}
               <div className="flex items-center gap-4 px-4 py-3 border-t border-border/30 mt-2 pt-4">
