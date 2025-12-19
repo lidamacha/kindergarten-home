@@ -16,14 +16,14 @@ const Hero = () => {
     >
       {/* Animated background shapes - enhanced floating effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-[5%] w-32 h-32 rounded-full bg-gradient-to-br from-accent/60 to-sun/40 animate-float-slow blur-sm" style={{ animationDelay: "0s" }} />
+        <div className="absolute top-20 left-[5%] w-32 h-32 rounded-full bg-gradient-to-br from-accent/60 to-sun/40 animate-float-slow blur-md" style={{ animationDelay: "0s" }} />
         <div className="absolute top-40 right-[10%] w-24 h-24 rounded-full bg-gradient-to-br from-sky/60 to-lavender/40 animate-float" style={{ animationDelay: "0.5s" }} />
-        <div className="absolute bottom-40 left-[15%] w-40 h-40 rounded-full bg-gradient-to-br from-secondary/70 to-grass/30 animate-float-slow blur-sm" style={{ animationDelay: "1s" }} />
-        <div className="absolute top-1/3 right-[20%] w-20 h-20 rounded-full bg-gradient-to-br from-lavender/60 to-primary/30 animate-float" style={{ animationDelay: "1.5s" }} />
-        <div className="absolute bottom-1/4 right-[8%] w-28 h-28 rounded-full bg-gradient-to-br from-peach/60 to-accent/30 animate-float-slow" style={{ animationDelay: "2s" }} />
+        <div className="absolute bottom-40 left-[15%] w-40 h-40 rounded-full bg-gradient-to-br from-secondary/70 to-grass/30 animate-float-slow blur-lg" style={{ animationDelay: "1s" }} />
+        <div className="absolute top-1/3 right-[20%] w-20 h-20 rounded-full bg-gradient-to-br from-lavender/60 to-primary/30 animate-float blur-sm" style={{ animationDelay: "1.5s" }} />
+        <div className="absolute bottom-1/4 right-[8%] w-28 h-28 rounded-full bg-gradient-to-br from-peach/60 to-accent/30 animate-float-slow blur-md" style={{ animationDelay: "2s" }} />
         <div className="absolute top-[60%] left-[8%] w-16 h-16 rounded-full bg-gradient-to-br from-primary/50 to-sky/30 animate-float" style={{ animationDelay: "2.5s" }} />
-        <div className="absolute top-[15%] left-[40%] w-12 h-12 rounded-full bg-gradient-to-br from-grass/50 to-secondary/30 animate-float" style={{ animationDelay: "3s" }} />
-        <div className="absolute bottom-[20%] left-[50%] w-18 h-18 rounded-full bg-gradient-to-br from-sun/50 to-peach/30 animate-float-slow" style={{ animationDelay: "0.8s" }} />
+        <div className="absolute top-[15%] left-[40%] w-12 h-12 rounded-full bg-gradient-to-br from-grass/50 to-secondary/30 animate-float blur-sm" style={{ animationDelay: "3s" }} />
+        <div className="absolute bottom-[20%] left-[50%] w-18 h-18 rounded-full bg-gradient-to-br from-sun/50 to-peach/30 animate-float-slow blur-md" style={{ animationDelay: "0.8s" }} />
         
         {/* Decorative lines */}
         <div className="absolute top-1/4 left-0 w-40 h-[2px] bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
