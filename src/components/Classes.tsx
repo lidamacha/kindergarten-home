@@ -48,12 +48,18 @@ const Classes = () => {
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-lavender/10 to-transparent rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-gradient-to-br from-accent/10 to-transparent rounded-full blur-3xl" />
 
-      {/* Wave decoration at bottom - matches Contact gradient-sunset */}
+      {/* Wave decoration at bottom - ombre gradient from card to sunset */}
       <div className="absolute -bottom-1 left-0 right-0">
         <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="cardToSunset" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="hsl(var(--card))" />
+              <stop offset="100%" stopColor="hsl(335 72% 88%)" />
+            </linearGradient>
+          </defs>
           <path
             d="M0 60L60 66C120 72 240 84 360 84C480 84 600 72 720 60C840 48 960 36 1080 42C1200 48 1320 72 1380 84L1440 96V120H0Z"
-            fill="hsl(335 72% 88%)"
+            fill="url(#cardToSunset)"
           />
         </svg>
       </div>

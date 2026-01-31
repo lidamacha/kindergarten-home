@@ -89,12 +89,18 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Wave decoration at bottom - matches Philosophy bg-card */}
+      {/* Wave decoration at bottom - ombre gradient from hero to card */}
       <div className="absolute -bottom-1 left-0 right-0">
         <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="heroToCard" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="hsl(335 72% 93%)" />
+              <stop offset="100%" stopColor="hsl(var(--card))" />
+            </linearGradient>
+          </defs>
           <path
             d="M0 60L48 54C96 48 192 36 288 30C384 24 480 24 576 33C672 42 768 60 864 66C960 72 1056 66 1152 54C1248 42 1344 24 1392 15L1440 6V120H0Z"
-            fill="hsl(var(--card))"
+            fill="url(#heroToCard)"
           />
         </svg>
       </div>

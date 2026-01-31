@@ -131,12 +131,18 @@ const Activities = () => {
         </div>
       </div>
 
-      {/* Wave decoration at bottom */}
+      {/* Wave decoration at bottom - ombre gradient from secondary to card */}
       <div className="absolute -bottom-1 left-0 right-0">
         <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="secondaryToCard" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="hsl(var(--secondary))" />
+              <stop offset="100%" stopColor="hsl(var(--card))" />
+            </linearGradient>
+          </defs>
           <path
             d="M0 40L48 46C96 52 192 64 288 70C384 76 480 76 576 67C672 58 768 40 864 34C960 28 1056 34 1152 46C1248 58 1344 76 1392 85L1440 94V120H0Z"
-            fill="hsl(var(--card))"
+            fill="url(#secondaryToCard)"
           />
         </svg>
       </div>
