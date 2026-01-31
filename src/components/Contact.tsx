@@ -34,7 +34,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden" style={{ background: 'var(--gradient-sunset)' }}>
+    <section id="contact" className="py-24 pt-32 relative overflow-hidden" style={{ background: 'var(--gradient-sunset)' }}>
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-sky/10 rounded-full blur-3xl" />

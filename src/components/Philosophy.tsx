@@ -94,7 +94,7 @@ const Philosophy = () => {
   const t = content[language];
 
   return (
-    <section id="philosophy" className="py-24 bg-card relative overflow-hidden">
+    <section id="philosophy" className="py-24 bg-card relative overflow-hidden pt-32">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-br from-secondary/10 to-muted/10 rounded-full blur-3xl" />
@@ -147,6 +147,15 @@ const Philosophy = () => {
         </div>
       </div>
 
+      {/* Wave decoration at bottom - matches Activities bg-secondary */}
+      <div className="absolute -bottom-1 left-0 right-0">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" preserveAspectRatio="none">
+          <path
+            d="M0 80L60 74C120 68 240 56 360 50C480 44 600 44 720 53C840 62 960 80 1080 86C1200 92 1320 86 1380 83L1440 80V120H0Z"
+            fill="hsl(var(--secondary))"
+          />
+        </svg>
+      </div>
     </section>
   );
 };
