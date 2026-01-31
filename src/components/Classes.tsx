@@ -43,17 +43,17 @@ const Classes = () => {
   ];
 
   return (
-    <section id="classes" className="py-24 bg-card relative overflow-hidden">
+    <section id="classes" className="py-24 pt-32 bg-card relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-lavender/10 to-transparent rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-gradient-to-br from-accent/10 to-transparent rounded-full blur-3xl" />
 
-      {/* Wave decoration at bottom - matches Contact gradient-sunset start color */}
+      {/* Wave decoration at bottom - matches Contact gradient-sunset */}
       <div className="absolute -bottom-1 left-0 right-0">
         <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" preserveAspectRatio="none">
           <path
             d="M0 60L60 66C120 72 240 84 360 84C480 84 600 72 720 60C840 48 960 36 1080 42C1200 48 1320 72 1380 84L1440 96V120H0Z"
-            fill="hsl(30 100% 97%)"
+            fill="hsl(335 72% 88%)"
           />
         </svg>
       </div>

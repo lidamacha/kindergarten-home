@@ -89,9 +89,9 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Wave decoration at bottom */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+      {/* Wave decoration at bottom - matches Philosophy bg-card */}
+      <div className="absolute -bottom-1 left-0 right-0">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" preserveAspectRatio="none">
           <path
             d="M0 60L48 54C96 48 192 36 288 30C384 24 480 24 576 33C672 42 768 60 864 66C960 72 1056 66 1152 54C1248 42 1344 24 1392 15L1440 6V120H0Z"
             fill="hsl(var(--card))"
