@@ -61,7 +61,7 @@ const Contact = () => {
           </ScrollReveal>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Contact Info */}
           <div 
             ref={infoRef as React.RefObject<HTMLDivElement>}
@@ -86,66 +86,6 @@ const Contact = () => {
             ))}
           </div>
 
-          {/* Contact Form */}
-          <ScrollReveal animation="fade-left" delay={200}>
-            <div className="glass rounded-3xl p-8 lg:p-10 border-border/30 shadow-playful">
-              <h3 className="text-2xl font-bold text-foreground mb-6">
-                {t.contact.form.title}
-              </h3>
-              <form className="space-y-5">
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-2">
-                      {t.contact.form.name}
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      className="w-full px-4 py-3.5 rounded-xl border border-border bg-card/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all placeholder:text-muted-foreground/60"
-                      placeholder={t.contact.form.namePlaceholder}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-foreground mb-2">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      className="w-full px-4 py-3.5 rounded-xl border border-border bg-card/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all placeholder:text-muted-foreground/60"
-                      placeholder={t.contact.form.emailPlaceholder}
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-semibold text-foreground mb-2">
-                    {t.contact.phone}
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    className="w-full px-4 py-3.5 rounded-xl border border-border bg-card/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all placeholder:text-muted-foreground/60"
-                    placeholder={t.contact.form.phonePlaceholder}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-foreground mb-2">
-                    {t.contact.form.message}
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={4}
-                    className="w-full px-4 py-3.5 rounded-xl border border-border bg-card/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all resize-none placeholder:text-muted-foreground/60"
-                    placeholder={t.contact.form.messagePlaceholder}
-                  />
-                </div>
-                <Button variant="hero" size="lg" className="w-full group">
-                  <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                  {t.contact.form.send}
-                </Button>
-              </form>
-            </div>
-          </ScrollReveal>
         </div>
       </div>
     </section>
