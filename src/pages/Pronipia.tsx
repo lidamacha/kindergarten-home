@@ -4,9 +4,13 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const Pronipia = () => {
   const { language } = useLanguage();
+  const seo = language === "el"
+    ? { title: "Προνήπια (4-5 ετών) | Χρώματα και Γέλια", description: "Τμήμα προνηπίων 4-5 ετών: κοινωνικές δεξιότητες, γλωσσική ανάπτυξη και λογικομαθηματική σκέψη." }
+    : { title: "Preschool (4-5 years) | Colors & Laughter", description: "Preschool class for ages 4-5: social skills, language development and early numeracy." };
 
   const content = {
     el: {

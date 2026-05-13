@@ -4,9 +4,13 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ScrollReveal } from "@/hooks/useScrollAnimation";
+import SEO from "@/components/SEO";
 
 const OStathmos = () => {
   const { language } = useLanguage();
+  const seo = language === "el"
+    ? { title: "Ο Σταθμός | Χρώματα και Γέλια", description: "Γνωρίστε τις ιδιοκτήτριες, το παιδαγωγικό προσωπικό και τις εγκαταστάσεις του σταθμού Χρώματα και Γέλια." }
+    : { title: "Our Center | Colors & Laughter", description: "Meet the owners, teaching staff and facilities of the Colors & Laughter preschool." };
 
   const content = {
     el: {

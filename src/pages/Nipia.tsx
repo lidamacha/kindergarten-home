@@ -4,9 +4,13 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const Nipia = () => {
   const { language } = useLanguage();
+  const seo = language === "el"
+    ? { title: "Νήπια (2.5-4 ετών) | Χρώματα και Γέλια", description: "Τμήμα νηπίων 2.5-4 ετών: ασφαλές περιβάλλον, δημιουργική έκφραση, μουσική και παραμύθια." }
+    : { title: "Toddlers (2.5-4 years) | Colors & Laughter", description: "Toddler class for ages 2.5-4: safe environment, creative expression, music and storytelling." };
 
   const content = {
     el: {
