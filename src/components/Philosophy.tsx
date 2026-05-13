@@ -9,7 +9,7 @@ const Philosophy = () => {
   const content = {
     el: {
       badge: "Η Φιλοσοφία μας",
-      title: "Ένα σπίτι γεμάτο χαρά",
+      title: "Ένας χώρος φροντίδας, παιχνιδιού και εξέλιξης",
       features: [
         { 
           icon: Sparkles, 
@@ -50,7 +50,7 @@ const Philosophy = () => {
     },
     en: {
       badge: "Our Philosophy",
-      title: "A home full of joy",
+      title: "A space of care, play and growth",
       features: [
         { 
           icon: Sparkles, 

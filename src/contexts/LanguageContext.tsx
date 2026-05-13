@@ -110,7 +110,7 @@ const translations: Record<Language, Translations> = {
     },
     philosophy: {
       badge: "Η Φιλοσοφία μας",
-      title: "Ένα σπίτι γεμάτο χαρά",
+      title: "Ένας χώρος φροντίδας, παιχνιδιού και εξέλιξης",
       description: "Στα \"Χρώματα και Γέλια\" πιστεύουμε ότι κάθε παιδί είναι μοναδικό και αξίζει την καλύτερη αρχή στη ζωή του.",
       features: {
         love: { title: "Αγάπη & Φροντίδα", description: "Κάθε παιδί αντιμετωπίζεται με αγάπη και προσοχή σε ένα ασφαλές περιβάλλον." },
@@ -196,7 +196,7 @@ const translations: Record<Language, Translations> = {
     },
     philosophy: {
       badge: "Our Philosophy",
-      title: "A home full of joy",
+      title: "A space of care, play and growth",
       description: "At \"Colors and Laughter\" we believe that every child is unique and deserves the best start in life.",
       features: {
         love: { title: "Love & Care", description: "Every child is treated with love and attention in a safe environment." },
