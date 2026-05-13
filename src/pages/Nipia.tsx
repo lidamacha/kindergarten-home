@@ -43,6 +43,7 @@ const Nipia = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title={seo.title} description={seo.description} path="/nipia" />
       <Navbar />
       
       <main className="pt-24 pb-16">
