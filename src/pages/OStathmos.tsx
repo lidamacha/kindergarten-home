@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ScrollReveal } from "@/hooks/useScrollAnimation";
 import SEO from "@/components/SEO";
+import facility1 from "@/assets/facility-1.png";
 
 const OStathmos = () => {
   const { language } = useLanguage();
@@ -140,7 +141,15 @@ const OStathmos = () => {
                 </p>
                 {/* Placeholder for facilities images */}
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  {[1, 2, 3, 4, 5, 6].map((i) => (
+                  <div className="aspect-square rounded-2xl overflow-hidden">
+                    <img
+                      src={facility1}
+                      alt={language === "el" ? "Εξωτερικός χώρος παιχνιδιού με ξύλινο αλογάκι" : "Outdoor play area with wooden rocking horse"}
+                      loading="lazy"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  {[2, 3, 4, 5, 6].map((i) => (
                     <div
                       key={i}
                       className="aspect-square rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center"
