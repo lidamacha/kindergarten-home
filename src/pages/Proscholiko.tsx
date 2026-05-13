@@ -4,9 +4,13 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const Proscholiko = () => {
   const { language } = useLanguage();
+  const seo = language === "el"
+    ? { title: "Προσχολικό / Νηπιαγωγείο (5-6 ετών) | Χρώματα και Γέλια", description: "Προσχολικό τμήμα 5-6 ετών: ανάγνωση, γραφή, μαθηματικά και σχολική ετοιμότητα." }
+    : { title: "Pre-K (5-6 years) | Colors & Laughter", description: "Pre-K class for ages 5-6: reading, writing, math and school readiness." };
 
   const content = {
     el: {
